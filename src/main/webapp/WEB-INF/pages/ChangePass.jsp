@@ -1,0 +1,107 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード変更</title>
+    <style>
+        body {
+            background-color: #dcdcdc;
+        }
+
+        .topBar {
+            background-color: white;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin: 5px 0 5px 0;
+        }
+
+        .alert {
+        	width: 480px;
+            color: red;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 5px;
+            background-color: white;
+            margin: 0 auto;
+        }
+
+        .passChange {
+            width: 480px;
+            height: 158px;
+            text-align: center;
+            background-color: white;
+            margin: 0 auto;
+            padding-top: 5px;
+        }
+
+        .textBox {
+            width: 300px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .buttons {
+            width: 480px;
+            background-color: white;
+            margin: 0 auto;
+            padding-top: 5px;
+        }
+
+        .changeButton {
+            font-size: 18px;
+            width: 90px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .button {
+            font-size: 18px;
+            width: 90px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .button:hover {
+            cursor: pointer;
+        }
+
+    </style>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="topBar">パスワード変更</div>
+    <div class="container">
+    <div class="alert">${message}</div>
+        <div class="passChange">
+            <form action="ChangePass" method="post">
+                <input type="text" name="UserId" id="UserId" class="textBox" placeholder="ユーザーID">
+                <input type="password" name="MasterKey" id="MasterKey" class="textBox" placeholder="マスターキー">
+                <input type="password" name="NewPassword" id="NewPassword" class="textBox" placeholder="新しいパスワード"><br>
+                <input type="submit" class="changeButton" style="float: left; margin-left: 5px;" value="変更">
+            </form>
+            <form action="Back" method="get">
+                <input type="submit" class="button" style="float: right; margin-right: 5px;" value="戻る">
+            </form>
+        </div>
+    </div>
+<script>
+    $(".changeButton").click(function() {
+        if($("#UserId").val() == "") {
+            alert("ユーザーIDを入力してください");
+            return false;
+        }
+        if($("#MasterKey").val() == "") {
+            alert("マスターキーを入力してください");
+            return false;
+        }
+        if($("#NewPassword").val() == "") {
+            alert("新しいパスワードを入力してください");
+            return false;
+        }
+    });
+</script>
+</body>
+</html>
