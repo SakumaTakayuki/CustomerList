@@ -1,6 +1,6 @@
 # CustomerList
 
-<h4>顧客管理システム(作成中)</h4>
+<h4>顧客管理システム</h4>
 
 <p>訓練校で作成したOfficeSystemを参考に最初から作る</p>
 <p>言語:java、SpringMVCで作成</p>
